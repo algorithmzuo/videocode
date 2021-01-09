@@ -107,9 +107,9 @@ public class Code06_MaxSubMatrixSum {
 	public static void main(String[] args) {
 		int maxLen = 10;
 		int maxValue = 30;
-		int testTime = 30000;
+		int testTime = 300000;
 		System.out.println("功能测试开始");
-		System.out.println("如果没有错误信息打印，说明功能测试通过");
+		boolean pass = true;
 		for (int i = 0; i < testTime; i++) {
 			int[][] m = randomMatrix(maxLen, maxValue);
 			int ans1 = maxSubMatrixSum1(m);
@@ -118,10 +118,13 @@ public class Code06_MaxSubMatrixSum {
 			if (ans1 != ans2 || ans1 != ans3) {
 				System.out.println("出错了！");
 				System.out.println(ans1 + " , " + ans2 + " , " + ans3);
+				pass = false;
 				break;
 			}
 		}
+		System.out.println("是否所有比对都一致 : " + (pass ? "是" : "否"));
 		System.out.println("功能测试结束");
+		System.out.println("==================");
 
 		System.out.println("性能测试开始");
 		int rowSize = 10000;
@@ -145,6 +148,7 @@ public class Code06_MaxSubMatrixSum {
 		end = System.currentTimeMillis();
 		System.out.println("方法3的运行结果 : " + ans3 + " , 运行时间 : " + (end - start) + " ms");
 		System.out.println("性能测试结束");
+		System.out.println("==================");
 
 	}
 
