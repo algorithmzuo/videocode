@@ -2,6 +2,8 @@ package videocode;
 
 public class Code06_MaxSubMatrixSum {
 
+	// 非常好想
+	// 面试这么写一定没分的做法
 	public static int maxSubMatrixSum1(int[][] m) {
 		if (m == null || m.length == 0 || m[0] == null || m[0].length == 0) {
 			return 0;
