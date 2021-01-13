@@ -13,8 +13,10 @@ public class Code06_MaxSubMatrixSum {
 		int ans = Integer.MIN_VALUE;
 		for (int lur = 0; lur < M; lur++) {
 			for (int luc = 0; luc < N; luc++) {
+				// (lur, luc)
 				for (int rdr = lur; rdr < M; rdr++) {
 					for (int rdc = luc; rdc < N; rdc++) {
+						// (rdr, rdc)
 						int sum = 0;
 						for (int i = lur; i <= rdr; i++) {
 							for (int j = luc; j <= rdc; j++) {
@@ -36,9 +38,9 @@ public class Code06_MaxSubMatrixSum {
 		int M = m.length;
 		int N = m[0].length;
 		int ans = Integer.MIN_VALUE;
-		for (int start = 0; start < M; start++) {
-			int[] arr = new int[N];
-			for (int cur = start; cur < M; cur++) {
+		for (int start = 0; start < M; start++) { 
+			int[] arr = new int[N]; // 0 ,0,0,0,..
+			for (int cur = start; cur < M; cur++) {		
 				for (int i = 0; i < N; i++) {
 					arr[i] += m[cur][i];
 				}
@@ -80,6 +82,7 @@ public class Code06_MaxSubMatrixSum {
 		return ans;
 	}
 
+	// 求子数组的最大累加和！
 	public static int maxSubArraySum(int[] arr) {
 		if (arr == null || arr.length == 0) {
 			return 0;

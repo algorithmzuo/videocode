@@ -10,6 +10,7 @@ public class Code05_MaxSubArraySum {
 		int ans = Integer.MIN_VALUE;
 		for (int L = 0; L < N; L++) {
 			for (int R = L; R < N; R++) {
+				// arr[L..R]
 				int sum = 0;
 				for (int i = L; i <= R; i++) {
 					sum += arr[i];
@@ -25,9 +26,15 @@ public class Code05_MaxSubArraySum {
 			return 0;
 		}
 		int N = arr.length;
+		// dp[i] : 子数组必须以arr[i]结尾的时候，子数组的最大累加和是多少？
 		int[] dp = new int[N];
-		dp[0] = arr[0];
+		dp[0] = arr[0]; // 0..0
 		int ans = arr[0];
+		// dp[1] -> dp[0]
+		// dp[2] -> dp[1]
+		// dp[3] -> dp[2]
+		// dp[4] -> dp[3]
+		// dp[i] => dp[i-1]
 		for (int i = 1; i < N; i++) {
 			dp[i] = Math.max(arr[i], arr[i] + dp[i - 1]);
 			ans = Math.max(ans, dp[i]);
@@ -40,9 +47,11 @@ public class Code05_MaxSubArraySum {
 			return 0;
 		}
 		int N = arr.length;
+		// pre -> dp[0]
 		int pre = arr[0];
 		int ans = arr[0];
 		for (int i = 1; i < N; i++) {
+		//  dp[3]                           dp[2]
 			pre = Math.max(arr[i], arr[i] + pre);
 			ans = Math.max(ans, pre);
 		}
